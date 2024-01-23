@@ -1,0 +1,12 @@
+xpath locators
+
+/tagname[@attribute='value'] - absolute path (don't ever use absolute path)
+//tagname[@attribute='value'] - relative path
+//(tagname[@attribute='value'])[nth element] - will select nth element if selector has more than one matching element
+//*[@attribute='value'] - searches among all tags for the matching attribute and value
+//tagname[text()='visible text'] - searches the element that has the same text as in locator
+//tagname[contains(text(),'visible text')] - searches the element that contains text as in locator
+//tagname[contains(@attribute,'part bof attribute value')] - searches the element that contains attribute value as in locator
+//parenttag[@attribute='value']//childtag[@attribute='value'] - navigates to the child element of the parent element
+//childtag[@attribute='value']/.. - navigates one step up to the parent element
+//childtag[@attribute='value']/../.. - navigates two steps up to the grandparent element
