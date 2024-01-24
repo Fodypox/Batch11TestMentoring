@@ -1,15 +1,20 @@
+package LIDLProject;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class SignInSteps extends DriverClass{
     public static void main(String[] args) {
 
-        MyMethods.myWait(2);
-        WebElement cookiesButton = driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']"));
-        cookiesButton.click();
+//        MyMethods.myWait(2);
+//        WebElement cookiesButton = driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']"));
+//        cookiesButton.click();
+        MyMethods.cookies();
 
         WebElement signInBtn = driver.findElement(By.xpath("//a[text()='sign in']"));
         signInBtn.click();
+
 
         WebElement myLidl = driver.findElement(By.xpath("//a[@data-test='joinButton']"));
         myLidl.click();
@@ -35,6 +40,16 @@ public class SignInSteps extends DriverClass{
 
         WebElement bd = driver.findElement(By.xpath("//input[@name='birthday']"));
         bd.sendKeys("05/13/2009");
+        MyMethods.myWait(1);
+        WebElement stateSelection = driver.findElement(By.xpath("//option[text()='Alabama']/.."));
+        stateSelection.click();
+        MyMethods.myWait(1);
+        WebElement coloradoState = driver.findElement(By.xpath("//option[text()='Colorado']"));
+        coloradoState.click();
+//        Select select = new Select(stateSelection);
+//        select.deselectByVisibleText("Colorado");
+        MyMethods.myWait(1);
+
         WebElement confirm = driver.findElement(By.cssSelector(".spinnie-container"));
         confirm.click();
         quitMethod();
