@@ -1,0 +1,15 @@
+TC ID: TC002
+TC Title: Verify Drag and Drop Functionality on DemoQA
+TC Description:
+This test case verifies the drag-and-drop functionality on the "https://demoqa.com/droppable" page. It specifically tests dragging the "Drag me" button and dropping it onto the "Drop here" box, then verifies that the text within the "Drop here" box changes to "Dropped!".
+
+TC Steps with Actions Class:
+1-Initialize WebDriver: Open the browser and navigate to "https://demoqa.com/droppable".
+2-Locate Draggable Element: Use WebDriver to find the element with the "Drag me" button.
+3-Locate Drop Target: Find the element representing the "Drop here" box.
+4-Perform Drag and Drop: Instantiate the Actions class and use its clickAndHold(draggableElement) method followed by moveToElement(dropTarget) and then release() to perform the drag and drop action.
+5-Verify Text Change: After the drop action, verify that the text inside the "Drop here" box has changed to "Dropped!".
+
+Expected Result:
+After performing the drag and drop action, the "Drag me" button should visually move to the "Drop here" box.
+The text within the "Drop here" box should change from "Drop here" to "Dropped!" confirming that the drop action was recognized by the application.

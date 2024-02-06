@@ -1,0 +1,17 @@
+TC ID: TC001
+TC Title: Verify Right-Click Context Menu and Navigation to Elemental Selenium
+TC Description:
+This test case aims to verify that a right-click on a designated area opens a context menu with the correct alert message "You selected a context menu". It also tests the functionality of navigating to the "Elemental Selenium" page and verifying the header text.
+
+TC Steps with Actions Class:
+1-Initialize WebDriver: Launch the browser and navigate to "https://the-internet.herokuapp.com/context_menu".
+2-Locate the Right-Click Area: Use WebDriver to find the element that represents the area where the right-click action needs to be performed.
+3-Perform Right-Click: Instantiate the Actions class and use its contextClick(element) method to perform a right-click on the located element.
+4-Handle Alert: Wait for the alert to appear, verify that the alert text is "You selected a context menu", and then accept the alert to close it.
+5-Navigate to Elemental Selenium: Find the "Elemental Selenium" link using WebDriver and click on it using the Actions class if necessary, or directly with the WebElement click method.
+6-Verify Page Header: After the navigation, ensure the presence of an <h1> tag containing the text "Elemental Selenium".
+
+Expected Result:
+The context menu should be triggered with a right-click on the specified area, and an alert with the message "You selected a context menu" should appear.
+Upon confirming the alert, it should close, allowing further actions.
+After clicking the "Elemental Selenium" link, the browser should successfully navigate to the Elemental Selenium page, where the page header should read "Elemental Selenium".

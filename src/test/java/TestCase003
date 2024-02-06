@@ -1,0 +1,21 @@
+TC ID: TC003
+TC Title: Verify Hover, Click, Click and Hold, and Double Click Actions
+TC Description:
+This test case aims to verify multiple user actions on the "http://webdriveruniversity.com/Actions" page, including hovering over an element to reveal a link, clicking the link to trigger a popup, handling the popup, performing a click and hold action, and executing a double-click action to trigger a response.
+
+TC Steps with Actions Class:
+1-Initialize WebDriver: Launch the browser and navigate to "http://webdriveruniversity.com/Actions".
+2-Hover Over Element: Locate the "Hover over Me First!" box and use the Actions class to move the cursor over this element.
+3-Click on Link: After the hover action reveals "Link 1", click on "Link 1" using the Actions class or WebElement click method.
+4-Handle Popup: Capture and print the popup message, then accept the popup to close it.
+5-Click and Hold Action: Locate the "Click and hold" box and use the Actions class to click and hold this element.
+6-Verify Text Change: Print the text from the "Click and hold" box, which should change upon performing the action.
+7-Double Click Action: Locate the "Double click me" button and use the Actions class to perform a double-click action.
+8-Verify Double Click Response: Verify that the action triggers the expected response, typically indicated by a change in the element's appearance or a new message display.
+
+Expected Result:
+Hovering over the "Hover over Me First!" box should reveal "Link 1".
+Clicking on "Link 1" should display a popup message, which should be correctly captured and printed.
+Accepting the popup should close it without errors.
+Performing a click and hold on the "Click and hold" box should change its text, confirming the action was successful.
+Double-clicking the "Double click me" button should trigger the expected response, verifying the double-click action was recognized.
