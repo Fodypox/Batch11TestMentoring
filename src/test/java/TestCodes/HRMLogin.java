@@ -14,10 +14,11 @@ public class HRMLogin {
         orange.sendKeysMethod(orange.username, "Admin");
         orange.sendKeysMethod(orange.password, "admin123");
         orange.clickMethod(orange.loginBtn);
-        String expectedTitle = "OrangeHRM1";
+        String expectedTitle = "OrangeHRM";
         String actualTitle = DriverClass.getDriver().getTitle();
         orange.assertTrueMethod(expectedTitle.equals(actualTitle));
         DriverClass.quitDriver();
+
 
     }
 }
