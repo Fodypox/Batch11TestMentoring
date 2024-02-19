@@ -17,12 +17,12 @@ public class LoginOpenMRS_TC {
         pages.sendKeysMethod(pages.username, "admin");
         pages.sendKeysMethod(pages.password, "Admin123");
 
-        ArrayList<WebElement> elements = (ArrayList<WebElement>) DriverClass.getDriver().findElements(By.cssSelector("ul#sessionLocation>li"));
+//        ArrayList<WebElement> elements = (ArrayList<WebElement>) DriverClass.getDriver().findElements(By.cssSelector("ul#sessionLocation>li"));
         Random rand = new Random();
 
         // Generate a random number between 1 and 6 (inclusive)
-        int randomNumber = rand.nextInt(6) + 1;
-        pages.clickMethod(elements.get(randomNumber));
+        int randomNumber = rand.nextInt(5) + 1;
+        pages.clickMethod(pages.locations.get(randomNumber));
 
         pages.clickMethod(pages.loginBtn);
 
