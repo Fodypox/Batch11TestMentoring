@@ -19,15 +19,15 @@ public class ECommercePage extends CommonMethods {
     @FindBy(xpath = "//ul[@class='top-menu notmobile']//a[text()='Computers ']")
     public WebElement computer;
 
-    @FindBy(xpath = "(//ul[@class='top-menu notmobile']//ul)[1]//a")
+    @FindBy(xpath = "(//ul[@class='top-menu notmobile']//ul)[2]//a")
     public List<WebElement> electronicsList;
 
-    @FindBy(xpath = "//ul[@class='top-menu notmobile']//a[text()='Computers ']")
+    @FindBy(xpath = "//ul[@class='top-menu notmobile']//a[text()='Electronics ']")
     public WebElement electronics;
 
-    @FindBy(xpath = "(//ul[@class='top-menu notmobile']//ul)[1]//a")
+    @FindBy(xpath = "(//ul[@class='top-menu notmobile']//ul)[3]//a")
     public List<WebElement> apparelList;
 
-    @FindBy(xpath = "//ul[@class='top-menu notmobile']//a[text()='Computers ']")
+    @FindBy(xpath = "//ul[@class='top-menu notmobile']//a[text()='Apparel ']")
     public WebElement apparel;
 }
