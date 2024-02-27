@@ -10,6 +10,7 @@ Feature:
     And I wait for 2 seconds
     And I assert that title is "Home"
     And I assert that element with xpath "xpath" is present
+    And I assert that "expected" is equal to element with xpath "actual"
     And I wait for 3 seconds
     And I quit the driver
     

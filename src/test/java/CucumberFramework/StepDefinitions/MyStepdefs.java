@@ -50,4 +50,10 @@ public class MyStepdefs {
     public void iAssertThatElementWithXpathIsPresent(String xpath) {
         Assert.assertTrue(DriverClass.getDriver().findElement(By.xpath(xpath)).isDisplayed());
     }
+
+    @And("I assert that {string} is equal to element with xpath {string}")
+    public void iAssertThatIsEqualToElementWithXpath(String expected, String xpath) {
+        pages.waitUntilVisible(DriverClass.getDriver().findElement(By.xpath(xpath)));
+        Assert.assertEquals(expected,DriverClass.getDriver().findElement(By.xpath(xpath)).getText());
+    }
 }
