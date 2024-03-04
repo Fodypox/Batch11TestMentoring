@@ -9,6 +9,9 @@ import org.openqa.selenium.support.PageFactory;
 public class CampusPage extends CommonMethods {
     @FindBy(xpath = "(//span[text()='Setup'])[1]")
     private WebElement MainSetup;
+
+    @FindBy(xpath = "//header//a[text()='Create an Account']")
+    public WebElement registerBtn;
     @FindBy(xpath = "//span[text()='Parameters']")
     private WebElement Parameters;
     @FindBy(xpath = "//span[text()='Countries']")

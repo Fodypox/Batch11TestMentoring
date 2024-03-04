@@ -1,5 +1,6 @@
 package CucumberFramework.StepDefinitions;
 
+import CucumberFramework.Pages.LumaPage;
 import Utilities.DriverClass;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
@@ -7,29 +8,35 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
 public class LumaSteps {
+
+    LumaPage page = new LumaPage();
+
     @Given("Navigate to luma webpage")
     public void navigateToLumaWebpage() {
+        DriverClass.getDriver().get("https://magento.softwaretestingboard.com/");
     }
 
     @When("I click on Create an account link")
     public void iClickOnCreateAnAccountLink() {
+        page.clickMethod(page.createAccountLink);
 
     }
 
     @And("I fill the registration form")
     public void iFillTheRegistrationForm(DataTable dataTable) {
         List<List<String>> dataList = dataTable.asLists(String.class);
-        WebElement firstNameField = DriverClass.getDriver().findElement(By.xpath("jhdfjdh"));
-//        firstNameField.sendKeys("Tester");
-        firstNameField.sendKeys(dataList.get(0).get(1));
-        for (int i = 0; i < dataList.size(); i++) {
-            System.out.println(dataList.get(i).get(0)+" is "+dataList.get(i).get(1)+" additional info "+dataList.get(i).get(2));
-        }
+
+        page.sendKeysMethod(page.firstName, dataList.get(0).get(1) + Keys.TAB +
+                dataList.get(1).get(1)+ Keys.TAB + dataList.get(2).get(1)+ Keys.TAB +
+                dataList.get(3).get(1)+ Keys.TAB + dataList.get(4).get(1)+Keys.ENTER);
+
+
 
     }
 
@@ -55,5 +62,17 @@ public class LumaSteps {
 
     @Then("new address should be added")
     public void newAddressShouldBeAdded() {
+    }
+
+    @When("I click on login link")
+    public void iClickOnLoginLink() {
+
+        page.clickMethod(page.loginLink);
+
+    }
+
+    @And("I enter {string} and {string}")
+    public void iEnterAnd(String username, String password) {
+        page.sendKeysMethod(page.emailField, username+Keys.TAB+password+Keys.ENTER);
     }
 }

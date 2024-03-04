@@ -9,12 +9,11 @@ Feature: Luma TCs
       | Email            | random@testRandom.com | another@email.com |
       | Password         | Qwerty123*            | jhsdgf            |
       | Confirm Password | Qwerty123*            | jhsdgf            |
-    And I click on Create an account button
     Then New account should be created
 
 
   Scenario Outline: add new address
-    Given navigate
+    Given Navigate to luma webpage
     When click on my account and click on add address button
     And fill address form of "<Street>" and "<City>" and "<state>" and "<zipcode>"
     Then new address should be added
