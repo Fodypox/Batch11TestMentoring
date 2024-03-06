@@ -16,12 +16,18 @@ public class CampusPage extends CommonMethods {
     private WebElement Parameters;
     @FindBy(xpath = "//span[text()='Countries']")
     private WebElement CountryBtn;
+
+    @FindBy(xpath = "//span[text()='States']")
+    private WebElement StateBtn;
     @FindBy(xpath = "(//span[@class='mat-mdc-focus-indicator'])[10]")
     private WebElement addBtn;
     @FindBy(xpath = "(//input[@data-placeholder='Name'])[2]")
     private WebElement nameField;
     @FindBy(xpath = "(//input[@data-placeholder='Code'])[2]")
     private WebElement codeField;
+
+    @FindBy(xpath = "//input[@data-placeholder='Short Name']")
+    private WebElement shortName;
 
     @FindBy(xpath = "//span[text()='Save']")
     private WebElement saveBtn;
@@ -56,5 +62,13 @@ public class CampusPage extends CommonMethods {
 
     public WebElement getSaveBtn() {
         return saveBtn;
+    }
+
+    public WebElement getStateBtn() {
+        return StateBtn;
+    }
+
+    public WebElement getShortName() {
+        return shortName;
     }
 }

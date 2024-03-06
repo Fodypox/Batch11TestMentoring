@@ -8,3 +8,9 @@ Feature: Country
   Scenario: Create new country
     Given I navigate to Country page
     When I create new Country
+    Then Error message with "Country with Name \"Neverlands\"" already exists should appear
+    
+    Scenario: Create new state
+      Given I navigate to State page
+      When I create new State
+      Then Error message with "State with Name \"New Jersey\"" already exists should appear

@@ -1,5 +1,6 @@
 package Utilities;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -29,6 +30,20 @@ public class CommonMethods {
         waitUntilVisible(element);
         scrollToElement(element);
         element.sendKeys(text);
+    }
+
+    public WebElement dynamicXpath(String name){
+        waitUntilVisible(DriverClass.getDriver().findElement(By.xpath("//div[text()='The "+name+" already exists.']")));
+        WebElement newElement = DriverClass.getDriver().findElement(By.xpath("//div[text()='The "+name+" already exists.']"));
+        return newElement;
+    }
+
+    public void waitMethod(int sec){
+        try {
+            Thread.sleep(sec*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void scrollToElement(WebElement element){
