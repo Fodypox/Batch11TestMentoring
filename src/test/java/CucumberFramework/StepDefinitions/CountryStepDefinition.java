@@ -4,9 +4,14 @@ import CucumberFramework.Pages.CampusPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.poi.ss.usermodel.*;
 import org.testng.Assert;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+
 public class CountryStepDefinition {
+
     CampusPage page = new CampusPage();
     @Given("I navigate to Country page")
     public void iNavigateToCountryPage() {
@@ -46,5 +51,24 @@ public class CountryStepDefinition {
         page.sendKeysMethod(page.getNameField(), "New Jersey");
         page.sendKeysMethod(page.getShortName(), "NJ");
         page.clickMethod(page.getSaveBtn());
+    }
+
+    @When("I create a new Country using excel data")
+    public void iCreateANewCountryUsingExcelData() throws IOException {
+        String path = "src/test/java/Resources/CampusData.xlsx";
+        FileInputStream fileInputStream = new FileInputStream(path);
+        Workbook workbook = WorkbookFactory.create(fileInputStream);
+        Sheet sheet = workbook.getSheet("OurSheet");
+        Row row = sheet.getRow(3);
+        Cell countryName = row.getCell(0);
+        Cell countryCode = row.getCell(1);
+        page.clickMethod(page.getAddBtn());
+        page.sendKeysMethod(page.getNameField(), countryName.toString());
+        page.sendKeysMethod(page.getCodeField(), countryCode.toString());
+        page.clickMethod(page.getSaveBtn());
+    }
+
+    @Then("New Country should be created")
+    public void newCountryShouldBeCreated() {
     }
 }
