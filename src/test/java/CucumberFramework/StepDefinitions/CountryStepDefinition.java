@@ -55,16 +55,19 @@ public class CountryStepDefinition {
 
     @When("I create a new Country using excel data")
     public void iCreateANewCountryUsingExcelData() throws IOException {
-        String path = "src/test/java/Resources/CampusData.xlsx";
-        FileInputStream fileInputStream = new FileInputStream(path);
-        Workbook workbook = WorkbookFactory.create(fileInputStream);
-        Sheet sheet = workbook.getSheet("OurSheet");
-        Row row = sheet.getRow(3);
-        Cell countryName = row.getCell(0);
-        Cell countryCode = row.getCell(1);
+//        String path = "src/test/java/Resources/CampusData.xlsx";
+//        FileInputStream fileInputStream = new FileInputStream(path);
+//        Workbook workbook = WorkbookFactory.create(fileInputStream);
+//        Sheet sheet = workbook.getSheet("OurSheet");
+//        Row row = sheet.getRow(3);
+//        Cell countryName = row.getCell(0);
+//        Cell countryCode = row.getCell(1);
+        String newCountry = page.generateRandomWord();
+        page.writeInExcel("src/test/java/Resources/CampusData.xlsx","OurSheet",3,0,newCountry);
+        String textFromExcel = page.readFromExcel("src/test/java/Resources/CampusData.xlsx","OurSheet",3,0);
         page.clickMethod(page.getAddBtn());
-        page.sendKeysMethod(page.getNameField(), countryName.toString());
-        page.sendKeysMethod(page.getCodeField(), countryCode.toString());
+        page.sendKeysMethod(page.getNameField(), textFromExcel);
+        page.sendKeysMethod(page.getCodeField(), "111");
         page.clickMethod(page.getSaveBtn());
     }
 
